@@ -51,6 +51,10 @@ ionic serve
 * Apos isso espere o app abrir, que assim você conseguira visualizar o prototipo
 
 ---
+## Membros
+Aline Guedes (01810669)
+João Guilherme (01806083)
+Lucas Rodrigo (01809313)
 
 # Prints
 ![print1](Projeto/assets/print1.png)
