@@ -53,6 +53,6 @@ ionic serve
 ---
 
 # Prints
-![print1](assets/print1.png)
-![print2](assets/print2.png)
-![print3](assets/print3.png)
+![print1](Projeto/assets/print1.png)
+![print2](Projeto/assets/print2.png)
+![print3](Projeto/assets/print3.png)
