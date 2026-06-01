@@ -1,41 +1,40 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Totem - Laboratório</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-card>
     <ion-card-header>
-      <ion-input
-        [value]="senhasService.inputNovaSenha"
-        label="Senha"
-        readonly="true">
-      </ion-input>
+      <ion-card-title class="ion-text-center">Selecione o seu Atendimento</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <ion-button expand="block" (click)="senhasService.novaSenha('SG')">
-        Senha Geral
+      <ion-button expand="block" size="large" color="danger" (click)="gerarSenha('SP')">
+        Senha Prioritária (SP)
+      </ion-button>
+      
+      <ion-button expand="block" size="large" color="success" style="margin-top: 15px;" (click)="gerarSenha('SE')">
+        Retirada de Exames (SE)
+      </ion-button>
+      
+      <ion-button expand="block" size="large" color="primary" style="margin-top: 15px;" (click)="gerarSenha('SG')">
+        Senha Geral (SG)
       </ion-button>
 
-      <ion-button expand="block" (click)="senhasService.novaSenha('SP')">
-        Senha Prioritária
-      </ion-button>
-
-      <ion-button expand="block" (click)="senhasService.novaSenha('SE')">
-        Senha Exame
-      </ion-button>
+      <div *ngIf="senhaGerada" style="margin-top: 20px; border-top: 1px dashed #ccc; padding-top: 20px;" class="ion-text-center">
+        <h2>A sua Senha:</h2>
+        <h1 style="font-size: 3.5em; color: var(--ion-color-dark); margin: 10px 0;">{{ senhaGerada.id }}</h1>
+        <p>Status: 
+          <ion-badge [color]="senhaGerada.status === 'Desistente' ? 'danger' : 'warning'">
+            {{ senhaGerada.status }}
+          </ion-badge>
+        </p>
+        <p *ngIf="senhaGerada.status === 'Desistente'" style="color: var(--ion-color-danger); font-size: 0.9em;">
+          *O cliente desistiu da fila (Simulação automática de 5% de evasão)
+        </p>
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>
